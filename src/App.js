@@ -1,104 +1,81 @@
-import React from 'react';
+import React,{useState,useEffect,useReducer} from 'react';
 import './App.css';
-import Greet from './commponents/Greets'
-import Welcome from './commponents/welcome'
-import Message from './commponents/Message.';
-import Counter from './commponents/Counter';
-import FunctionClick from './commponents/FunctionClick'
-import ClassClick from './commponents/ClassClick';
-import EventBind from './commponents/EventBind';
-import Parentcomponent from './commponents/Parentcomponent';
-import UserGreeting from './commponents/UserGreeting';
-import LIst from './commponents/LIst';
-import Stylesheet from './commponents/Stylesheet';
-import Inline from './commponents/Inline';
-import './appStyles.css';
-import Styles from './appStyle.module.css'
-import Form from './commponents/Form'
-import Mountcycle from './commponents/Mountcycle';
-import Update from './commponents/Update';
-import Fragment from './commponents/Fragment';
-import Refdemo from './commponents/Refdemo';
-import Focusinput from './commponents/Focusinput';
-import FRParentInput from './commponents/FRParentInput';
-import PortalDemo from './commponents/PortalDemo';
-import Hero from './commponents/Hero';
-import ErrorBoundary from './commponents/ErrorBoundary';
-import ClickCounter from './commponents/ClickCounter';
-import HoverCounter from './commponents/HoverCounter';
-import ClickCounterTwo from './commponents/ClickCounterTwo';
-import HoverCounterTwo from './commponents/HoverCounterTwo';
-import User from './commponents/User';
-import CounterTwo from './commponents/CounterTwo';
+import ClassCounter from './commponents/ClassCounter';
+import HookCounter from './commponents/HookCounter';
+import HooksCouterTwo from './commponents/HooksCouterTwo';
+import ObjectUpdate from './commponents/ObjectUpdate';
+import Arrayupdatehooks from './commponents/Arrayupdatehooks';
+import UseEffectcounter from './commponents/UseEffectcounter';
+import UseEffectcounter2 from './commponents/UseEffectcounter2';
+import ClassMouse from './commponents/ClassMouse';
+import UseEffectMouse from './commponents/UseEffectMouse';
+import TimerClass from './commponents/TimerClass';
+import TimerHooks from './commponents/TimerHooks';
+import Fetchdata from './commponents/Fetchdata';
+import UseReducesCounter from './commponents/UseReducesCounter';
+import UseReducesCountertwo from './commponents/UseReducesCountertwo';
+import UserReducercounterthree from './commponents/UserReducercounterthree';
+import CompoentA from './commponents/CompoentA';
+import ComponentB from './commponents/ComponentB';
 import ComponentC from './commponents/ComponentC';
-import {UserProvider} from './commponents/userContext';
-import PostList from './commponents/PostList';
-import Getrequest from './Requests/Getrequest';
-import Postrequest from './Requests/Postrequest';
-export default class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <Postrequest></Postrequest>
-        {/* <Getrequest></Getrequest> */}
-        {/* <UserProvider value = "lalit">
-          <ComponentC></ComponentC>
-        </UserProvider> */}
-        {/* <CounterTwo render={(count, increamentCount) => (
+import UseEffectget from './Requests/UseEffectget';
+import ParentComponent from './commponents/ParentComponent';
+import CounterMemo from './commponents/CounterMemo';
+import UseRefInput from './commponents/UseRefinput';
+import ClassTimeRef from './commponents/ClassTimeRef';
+import HooksTimer from './commponents/HooksTimer';
 
-          <ClickCounter count={count} increamentCount={increamentCount}></ClickCounter>
-        )}></CounterTwo>
+export const CountContext = React.createContext();
+const initialstate = 0
+const reducer = (state, action) =>{
+     switch(action){
+       case 'increament':
+         return state +1
+       case 'decreament':
+         return state -1
+       case 'reset':
+         return initialstate
+       default:
+         return state
+     }
 
-        <CounterTwo render={(count, increamentCount) => (
-
-          <HoverCounterTwo count={count} increamentCount={increamentCount}></HoverCounterTwo>
-        )}></CounterTwo> */}
-        {/* <ClickCounterTwo></ClickCounterTwo>
-        <HoverCounterTwo></HoverCounterTwo>
-         <User render = {(isloggedIn)=> isloggedIn ?'lalit' : 'guest'}></User> */}
-        {/* <ClickCounter name = "visvas"></ClickCounter> */}
-        {/* <HoverCounter></HoverCounter> */}
-        {/* <ErrorBoundary>
-        <Hero heroname = 'Batman'></Hero>
-        </ErrorBoundary>
-        
-        <ErrorBoundary>
-        <Hero heroname = 'superman'></Hero>
-        </ErrorBoundary>
-
-        <ErrorBoundary>
-       <Hero heroname = 'joker'></Hero>
-       </ErrorBoundary> */}
-        {/* <PortalDemo></PortalDemo> */}
-        {/* <FRParentInput></FRParentInput> */}
-        {/* <Focusinput></Focusinput> */}
-        {/* <Refdemo></Refdemo> */}
-        {/* <Fragment></Fragment> */}
-        {/* <Update></Update> */}
-        {/* <Mountcycle></Mountcycle> */}
-        {/* <Form></Form> */}
-        {/* <h1 className = 'error'>error</h1>
-        <h1 className = {Styles.success}>success</h1>
-        <Inline></Inline> */}
-        {/* <Stylesheet primary = {true}></Stylesheet> */}
-        {/* <LIst></LIst> */}
-        {/* <UserGreeting></UserGreeting> */}
-        {/* <Parentcomponent></Parentcomponent> */}
-        {/* <EventBind></EventBind> */}
-        {/* <ClassClick></ClassClick> */}
-        {/* <FunctionClick></FunctionClick> */}
-        {/* <Counter/> */}
-        {/* <Message/> */}
-        {/* <Greet name = 'harish' heroname = 'batman'>
-               <p>this is children props</p>
-           </Greet> */}
-        {/* <Greet name = 'appu' heroname = 'superman'>
-              <button>click me</button>
-           </Greet>
-           <Greet name = 'ramu' heroname = 'pta nhi kon'/> */}
-        {/* <Welcome name = 'appu' heroname = 'superman'/>  */}
-      </div>
-    );
-  }
 }
+function App () {
+  const[count,dispatch] = useReducer(reducer,initialstate)
+     return (
+    //   <CountContext.Provider 
+    //    value  ={{coutstate: count, countdispatch: dispatch}}
+    //    >
+      <div className="App">
+        {/* <UseRefInput></UseRefInput> */}
+        <HooksTimer></HooksTimer>
+        <ClassTimeRef></ClassTimeRef>
+        {/* <CounterMemo></CounterMemo> */}
+        {/* <ParentComponent></ParentComponent> */}
+        {/* <UseEffectget></UseEffectget> */}
+        {/* count - {count}
+        <CompoentA></CompoentA>
+        <ComponentB></ComponentB>
+        <ComponentC></ComponentC> */}
+        {/* <UserReducercounterthree></UserReducercounterthree> */}
+        {/* <UseReducesCountertwo></UseReducesCountertwo> */}
+        {/* <UseReducesCounter></UseReducesCounter> */}
+        {/* <Fetchdata></Fetchdata> */}
+        {/* <TimerHooks></TimerHooks>
+        <TimerClass></TimerClass> */}
+        {/* <ClassMouse></ClassMouse> */}
+        {/* <UseEffectMouse></UseEffectMouse> */}
+        {/* <Arrayupdatehooks></Arrayupdatehooks> */}
+        {/* <ObjectUpdate></ObjectUpdate> */}
+        {/* <HooksCouterTwo></HooksCouterTwo> */}
+        {/* <HookCounter></HookCounter> */}
+          {/* <ClassCounter></ClassCounter> */}
+          {/* <UseEffectcounter></UseEffectcounter> */}
+          {/* <UseEffectcounter2></UseEffectcounter2> */}
+          </div>
+      // </CountContext.Provider>
+    );
+}
+
+export default App;
 
