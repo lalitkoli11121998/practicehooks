@@ -24,6 +24,9 @@ import CounterMemo from './commponents/CounterMemo';
 import UseRefInput from './commponents/UseRefinput';
 import ClassTimeRef from './commponents/ClassTimeRef';
 import HooksTimer from './commponents/HooksTimer';
+import ClassTimer from './commponents/ClassTimer';
+import DocTitleOne from './commponents/DocTitleOne';
+import DocTitletwo from './commponents/Doctitletwo';
 
 export const CountContext = React.createContext();
 const initialstate = 0
@@ -47,9 +50,12 @@ function App () {
     //    value  ={{coutstate: count, countdispatch: dispatch}}
     //    >
       <div className="App">
+        <DocTitletwo></DocTitletwo>
+        <DocTitleOne></DocTitleOne>
         {/* <UseRefInput></UseRefInput> */}
-        <HooksTimer></HooksTimer>
-        <ClassTimeRef></ClassTimeRef>
+        {/* <HooksTimer></HooksTimer> */}
+        {/* <ClassTimer></ClassTimer> */}
+        {/* <ClassTimeRef></ClassTimeRef> */}
         {/* <CounterMemo></CounterMemo> */}
         {/* <ParentComponent></ParentComponent> */}
         {/* <UseEffectget></UseEffectget> */}
